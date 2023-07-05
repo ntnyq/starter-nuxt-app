@@ -14,5 +14,5 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["nuxt"]
+  "cSpell.words": ["iconify", "nuxt", "nuxtjs", "pinia", "vueuse"]
 }
