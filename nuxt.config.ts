@@ -12,7 +12,18 @@ export default defineNuxtConfig({
     'floating-vue/nuxt',
   ],
 
-  pwa: {},
+  pwa: {
+    // https://github.com/vite-pwa/vite-plugin-pwa/issues/120#issuecomment-1202579983
+    strategies: 'generateSW',
+    workbox: {
+      globPatterns: ['**/*.{js,css}'],
+      navigateFallback: null,
+    },
+    manifest: {
+      name: 'Nuxt Starter',
+      description: 'nuxt starter',
+    },
+  },
 
   // ssr: false,
 

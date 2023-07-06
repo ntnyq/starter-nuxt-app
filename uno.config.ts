@@ -1,4 +1,4 @@
-import { defineConfig, presetIcons, presetUno } from 'unocss'
+import { defineConfig, presetIcons, presetTypography, presetUno } from 'unocss'
 
 export default defineConfig({
   shortcuts: [],
@@ -7,6 +7,7 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
     }),
+    presetTypography(),
   ],
   transformers: [],
 })
