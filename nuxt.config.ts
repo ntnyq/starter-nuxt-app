@@ -3,35 +3,52 @@
  * @see https://nuxt.com/docs/api/configuration/nuxt-config
  */
 
+import { pwa } from './configs/pwa'
+import { META } from './constants'
+
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@nuxtjs/color-mode',
+    '@pinia/nuxt',
     '@vite-pwa/nuxt',
+    '@nuxtjs/color-mode',
     'floating-vue/nuxt',
   ],
-
-  pwa: {
-    // https://github.com/vite-pwa/vite-plugin-pwa/issues/120#issuecomment-1202579983
-    strategies: 'generateSW',
-    workbox: {
-      globPatterns: ['**/*.{js,css}'],
-      navigateFallback: null,
-    },
-    manifest: {
-      name: 'Nuxt Starter',
-      description: 'nuxt starter',
-    },
-  },
-
-  // ssr: false,
 
   experimental: {
     payloadExtraction: false,
     inlineSSRStyles: false,
     renderJsonPayloads: true,
     typedPages: true,
+  },
+
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
+    },
+    prerender: {
+      crawlLinks: false,
+      routes: ['/'],
+      ignore: ['/hi'],
+    },
+  },
+
+  app: {
+    head: {
+      viewport: 'width=device-width,initial-scale=1',
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: META.appDescription },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+      ],
+    },
   },
 
   vite: {
@@ -46,11 +63,23 @@ export default defineNuxtConfig({
     },
   },
 
+  components: [{ path: '~/components', pathPrefix: false }],
+
+  // gtm: {},
+
   imports: {
     dirs: [],
   },
 
-  css: ['@unocss/reset/tailwind.css'],
+  css: ['@unocss/reset/tailwind.css', '~/styles/app.scss'],
+
+  colorMode: {
+    classSuffix: '',
+  },
+
+  // ssr: false,
+
+  pwa,
 
   devtools: { enabled: true },
 })
