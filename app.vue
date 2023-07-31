@@ -19,6 +19,7 @@ const handleInstall = () => {
 </script>
 
 <template>
+  <VitePwaManifest />
   <div class="min-h-screen flex flex-column justify-center items-center">
     <h1 class="text-5xl">Hello world</h1>
     <div

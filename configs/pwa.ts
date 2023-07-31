@@ -2,7 +2,7 @@
  * @file PWA config
  */
 
-import process from 'node:process'
+// import process from 'node:process'
 import { META } from '../constants'
 import type { ModuleOptions } from '@vite-pwa/nuxt'
 
@@ -13,9 +13,10 @@ export const pwa: ModuleOptions = {
   base: scope,
   registerType: 'autoUpdate',
   // https://github.com/vite-pwa/vite-plugin-pwa/issues/120#issuecomment-1202579983
-  strategies: 'generateSW',
+  // strategies: 'generateSW',
   manifest: {
     id: scope,
+    scope,
     name: META.appName,
     short_name: META.appName,
     description: META.appDescription,
@@ -78,7 +79,8 @@ export const pwa: ModuleOptions = {
   registerWebManifestInRouteRules: true,
   writePlugin: true,
   devOptions: {
-    enabled: process.env.VITE_PLUGIN_PWA === 'true',
+    // enabled: process.env.VITE_PLUGIN_PWA === 'true',
+    enabled: true,
     navigateFallback: scope,
   },
 }
