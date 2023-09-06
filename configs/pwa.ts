@@ -80,7 +80,7 @@ export const pwa: ModuleOptions = {
   writePlugin: true,
   devOptions: {
     // enabled: process.env.VITE_PLUGIN_PWA === 'true',
-    enabled: true,
+    enabled: false,
     navigateFallback: scope,
   },
 }

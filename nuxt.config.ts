@@ -23,6 +23,14 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        moduleResolution: 'bundler',
+      },
+    },
+  },
+
   nitro: {
     esbuild: {
       options: {
@@ -38,6 +46,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: META.appName,
       viewport: 'width=device-width,initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -51,13 +60,11 @@ export default defineNuxtConfig({
     },
   },
 
-  vite: {
-    vue: {
-      script: {
-        defineModel: true,
-      },
-    },
+  vue: {
+    defineModel: true,
+  },
 
+  vite: {
     server: {
       cors: true,
     },
@@ -65,19 +72,24 @@ export default defineNuxtConfig({
 
   components: [{ path: '~/components', pathPrefix: false }],
 
-  // gtm: {},
-
   imports: {
-    dirs: [],
+    dirs: ['./composables', './utils'],
   },
 
-  css: ['@unocss/reset/tailwind.css', '~/styles/app.scss'],
+  css: [
+    '@unocss/reset/tailwind.css',
+    'floating-vue/dist/style.css',
+    '~/styles/vars.css',
+    '~/styles/global.css',
+  ],
 
   colorMode: {
     classSuffix: '',
   },
 
   // ssr: false,
+
+  // gtm: {},
 
   pwa,
 
