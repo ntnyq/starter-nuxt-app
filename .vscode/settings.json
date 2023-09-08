@@ -14,5 +14,15 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["Attributify", "gstatic", "iconify", "nuxt", "nuxtjs", "pinia", "Vite", "vueuse"]
+  "cSpell.words": [
+    "Attributify",
+    "gstatic",
+    "iconify",
+    "nuxt",
+    "nuxtjs",
+    "pinia",
+    "valibot",
+    "Vite",
+    "vueuse"
+  ]
 }

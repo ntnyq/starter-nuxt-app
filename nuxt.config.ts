@@ -3,7 +3,6 @@
  * @see https://nuxt.com/docs/api/configuration/nuxt-config
  */
 
-import { pwa } from './configs/pwa'
 import { META } from './constants'
 
 export default defineNuxtConfig({
@@ -11,8 +10,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@pinia/nuxt',
-    '@vite-pwa/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxtjs/google-fonts',
     'floating-vue/nuxt',
   ],
 
@@ -23,13 +22,13 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        moduleResolution: 'bundler',
-      },
-    },
-  },
+  // typescript: {
+  //   tsConfig: {
+  //     compilerOptions: {
+  //       moduleResolution: 'bundler',
+  //     },
+  //   },
+  // },
 
   nitro: {
     esbuild: {
@@ -40,7 +39,6 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: false,
       routes: ['/'],
-      ignore: ['/hi'],
     },
   },
 
@@ -48,10 +46,7 @@ export default defineNuxtConfig({
     head: {
       title: META.appName,
       viewport: 'width=device-width,initial-scale=1',
-      link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-      ],
+      link: [{ rel: 'icon', type: 'image/png', href: '/icon_48.png' }],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: META.appDescription },
@@ -70,7 +65,9 @@ export default defineNuxtConfig({
     },
   },
 
-  components: [{ path: '~/components', pathPrefix: false }],
+  components: {
+    dirs: ['~/components'],
+  },
 
   imports: {
     dirs: ['./composables', './utils'],
@@ -83,15 +80,20 @@ export default defineNuxtConfig({
     '~/styles/global.css',
   ],
 
+  // ssr: false,
+
+  devtools: { enabled: true },
+
+  // gtm: {},
+
   colorMode: {
     classSuffix: '',
   },
 
-  // ssr: false,
-
-  // gtm: {},
-
-  pwa,
-
-  devtools: { enabled: true },
+  googleFonts: {
+    download: true,
+    families: {
+      Inter: true,
+    },
+  },
 })

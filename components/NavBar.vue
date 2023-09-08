@@ -1,8 +1,8 @@
 <template>
   <header
     flex="~ wrap"
-    border="~"
     shadow="~"
+    border="b"
     justify-between
     items-center
     p-4
