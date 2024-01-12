@@ -12,12 +12,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
-    'floating-vue/nuxt',
   ],
 
   experimental: {
     payloadExtraction: false,
-    inlineSSRStyles: false,
     renderJsonPayloads: true,
     typedPages: true,
   },
@@ -73,12 +71,7 @@ export default defineNuxtConfig({
     dirs: ['./composables', './utils'],
   },
 
-  css: [
-    '@unocss/reset/tailwind.css',
-    'floating-vue/dist/style.css',
-    '~/styles/vars.css',
-    '~/styles/global.css',
-  ],
+  css: ['@unocss/reset/tailwind.css', '~/styles/vars.css', '~/styles/global.css'],
 
   // ssr: false,
 
