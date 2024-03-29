@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const colorMode = useColorMode()
+</script>
+
 <template>
   <header
     flex="~ wrap"
@@ -23,7 +27,7 @@
         p1
       >
         <div
-          v-if="$colorMode.value === 'dark'"
+          v-if="colorMode.value === 'dark'"
           i-carbon:moon
         />
         <div

@@ -1,5 +1,6 @@
 {
   "name": "starter-nuxt-app",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@8.15.5",
@@ -11,7 +12,7 @@
     "generate": "nuxt generate",
     "lint": "eslint .",
     "postinstall": "nuxt prepare",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preview": "nuxt preview",
     "publish": "pnpm build && changeset publish",
     "typecheck": "nuxt typecheck"

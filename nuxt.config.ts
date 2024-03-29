@@ -20,14 +20,6 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  // typescript: {
-  //   tsConfig: {
-  //     compilerOptions: {
-  //       moduleResolution: 'bundler',
-  //     },
-  //   },
-  // },
-
   nitro: {
     esbuild: {
       options: {
@@ -53,10 +45,6 @@ export default defineNuxtConfig({
     },
   },
 
-  vue: {
-    defineModel: true,
-  },
-
   vite: {
     server: {
       cors: true,
@@ -76,8 +64,6 @@ export default defineNuxtConfig({
   // ssr: false,
 
   devtools: { enabled: true },
-
-  // gtm: {},
 
   colorMode: {
     classSuffix: '',
