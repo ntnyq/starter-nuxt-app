@@ -5,10 +5,12 @@ import {
   presetTypography,
   presetUno,
   transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss'
 
 export default defineConfig({
   shortcuts: [],
+
   presets: [
     presetUno(),
     presetIcons({
@@ -20,5 +22,6 @@ export default defineConfig({
     presetAttributify(),
     presetTypography(),
   ],
-  transformers: [transformerDirectives()],
+
+  transformers: [transformerDirectives(), transformerVariantGroup()],
 })

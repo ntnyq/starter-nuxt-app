@@ -5,6 +5,7 @@
 }
 
 :root.dark {
+  color-scheme: dark;
   --c-border: #222;
   --c-bg-base: #1e1e1e;
   --c-text-base: #fff;

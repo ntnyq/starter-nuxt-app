@@ -1,6 +1,4 @@
-<script lang="ts" setup>
-const colorMode = useColorMode()
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <header
@@ -14,9 +12,9 @@ const colorMode = useColorMode()
   >
     <div>
       <h1
-        text="lg"
+        text="xl"
         font-mono
-        font-500
+        font-600
       >
         Starter Nuxt App
       </h1>
@@ -27,12 +25,8 @@ const colorMode = useColorMode()
         p1
       >
         <div
-          v-if="colorMode.value === 'dark'"
-          i-carbon:moon
-        />
-        <div
-          v-else
           i-carbon:sun
+          dark:i-carbon:moon
         />
       </button>
       <a
