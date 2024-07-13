@@ -57,11 +57,14 @@ export default defineNuxtConfig({
 
   imports: {
     dirs: ['./composables', './utils'],
+    addons: {
+      vueTemplate: true,
+    },
   },
 
   css: ['@unocss/reset/tailwind.css', '~/styles/vars.css', '~/styles/global.css'],
 
-  // ssr: false,
+  ssr: false,
 
   devtools: { enabled: true },
 
