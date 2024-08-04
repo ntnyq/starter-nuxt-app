@@ -1,28 +1,5 @@
 <script lang="ts" setup>
-const location = useBrowserLocation()
-
-const DEFAULT_INPUT = 'hello world'
-
-const inputValue = ref('')
-
-const rawUrlState = import.meta.client ? atou(location.value.hash!.slice(1)) : undefined
-const urlState = rawUrlState && JSON.parse(rawUrlState)
-
-// if (rawUrlState) {
-//   inputValue.value = urlState?.i || DEFAULT_INPUT
-// }
-
-inputValue.value = urlState?.i || DEFAULT_INPUT
-
-if (import.meta.client) {
-  watchEffect(() => {
-    const i = inputValue.value === DEFAULT_INPUT ? '' : inputValue.value
-    const serialized = JSON.stringify({
-      i,
-    })
-    location.value.hash = utoa(serialized)
-  })
-}
+import { inputValue } from '#imports'
 </script>
 
 <template>

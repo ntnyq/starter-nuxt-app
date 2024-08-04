@@ -5,6 +5,7 @@
     "vue",
     "yaml",
     "html",
+    "toml",
     "json",
     "jsonc",
     "json5",
